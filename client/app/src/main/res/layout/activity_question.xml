@@ -51,7 +51,7 @@
             android:layout_height="55dp"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="The palyers who player for Real Madrid are:"
+            android:text="The players who player for Real Madrid are:"
             android:textSize="14sp" />
 
         <ToggleButton
