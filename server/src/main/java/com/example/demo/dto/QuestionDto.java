@@ -1,6 +1,6 @@
 package com.example.demo.dto;
 
-import com.opencsv.bean.CsvBindByPosition;
+import java.util.Arrays;
 
 public class QuestionDto {
 
@@ -10,8 +10,8 @@ public class QuestionDto {
     private String answer2;
     private String answer3;
     private String answer4;
-    private String correct;
-    private String points;
+    private int[] correct;
+    private int points;
 
     public QuestionDto(String[] arr) {
         this.id = arr[0];
@@ -20,8 +20,16 @@ public class QuestionDto {
         this.answer2 = arr[3];
         this.answer3 = arr[4];
         this.answer4 = arr[5];
-        this.correct = arr[6];
-        this.points = arr[7];
+
+        if (!arr[6].equals("CORRECT_ANSWERS")){
+            this.correct = Arrays.stream(arr[6].split(","))
+                    .map(String::trim).mapToInt(Integer::parseInt).toArray();
+        }
+
+        if (!arr[7].equals("POINTS")){
+            this.points = Integer.parseInt(arr[7]);
+        }
+
     }
 
     public String getId() {
@@ -48,11 +56,11 @@ public class QuestionDto {
         return answer4;
     }
 
-    public String getCorrect() {
+    public int[] getCorrect() {
         return correct;
     }
 
-    public String getPoints() {
+    public int getPoints() {
         return points;
     }
 }
