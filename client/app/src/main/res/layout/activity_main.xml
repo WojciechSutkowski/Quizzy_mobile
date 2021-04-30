@@ -58,6 +58,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginBottom="10dp"
+                android:onClick="switchActivity"
                 android:layout_height="fill_parent">
                 <ImageView
                     android:layout_width="300dp"
