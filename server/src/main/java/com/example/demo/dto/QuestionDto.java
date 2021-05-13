@@ -1,6 +1,8 @@
 package com.example.demo.dto;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class QuestionDto {
 
@@ -30,6 +32,17 @@ public class QuestionDto {
             this.points = Integer.parseInt(arr[7]);
         }
 
+    }
+
+    public List<String> getAnswers() {
+
+            List<String> ans = new ArrayList<>();
+            ans.add(this.answer1);
+            ans.add(this.answer2);
+            ans.add(this.answer3);
+            ans.add(this.answer4);
+
+        return ans;
     }
 
     public String getId() {

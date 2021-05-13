@@ -22,7 +22,6 @@ public class Questions {
     public void readQuestions() throws IOException {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         InputStream is = classloader.getResourceAsStream("categories/"+this.category+".csv");
-        System.out.println(category);
 
         InputStreamReader streamReader = new InputStreamReader(is, StandardCharsets.UTF_8);
         BufferedReader reader = new BufferedReader(streamReader);
