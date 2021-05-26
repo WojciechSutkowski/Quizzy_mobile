@@ -1,7 +1,6 @@
 package com.example.quizzy;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class QuestionActivity extends AppCompatActivity {
@@ -10,5 +9,10 @@ public class QuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        // np.
+        // pobierzPytania()
     }
+
+    // public pobierzPytania()....
 }
