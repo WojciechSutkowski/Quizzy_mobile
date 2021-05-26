@@ -24,9 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ad6ec4c8-b0bd-409a-b226-cc9c403def49" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/QuizzyApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/QuizzyApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/QuizzyApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/QuizzyApiController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,10 +119,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="447" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1619086209391" />
-    <state x="986" y="441" key="FileChooserDialogImpl" timestamp="1621437743737">
+    <state x="986" y="441" key="FileChooserDialogImpl" timestamp="1621505901025">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="986" y="441" key="FileChooserDialogImpl/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1621437743737" />
+    <state x="986" y="441" key="FileChooserDialogImpl/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1621505901025" />
     <state width="1860" height="355" key="GridCell.Tab.0.bottom" timestamp="1621447785562">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
