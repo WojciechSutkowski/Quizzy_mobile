@@ -57,6 +57,7 @@ public class QuizzyApiController {
         answersService.addAnswer(answer);
 
         return new ResponseEntity<>(HttpStatus.OK);
+
     }
 
     // Generate results in PDF
