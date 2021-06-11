@@ -29,6 +29,7 @@ public class QuizzyApiController {
 
         questionService.readQuestions(categoryDto.getCategory());
         answersService.resetAnswers();
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -53,7 +54,6 @@ public class QuizzyApiController {
     @PutMapping("/quiz/calculate")
     public @ResponseBody ResponseEntity<Void> checkAnswer(@RequestBody AnswerDto answer) {
 
-        // Add selected answer to answers array
         answersService.addAnswer(answer);
 
         return new ResponseEntity<>(HttpStatus.OK);

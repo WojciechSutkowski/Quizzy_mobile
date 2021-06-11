@@ -37,7 +37,10 @@ public class QuestionActivity extends AppCompatActivity {
 
         nextQuestion = findViewById(R.id.button_next_question);
         nextQuestion.setOnClickListener(v -> {
-            putAnswers();
+//            if(lastquestion)
+            // odpalic results activity
+//                return;
+//            putAnswers();
             question_index++;
             getQuestion();
         });
@@ -52,14 +55,15 @@ public class QuestionActivity extends AppCompatActivity {
         quizAnswer2View = findViewById(R.id.answer_button2);
         quizAnswer3View = findViewById(R.id.answer_button3);
         quizAnswer4View = findViewById(R.id.answer_button4);
+        System.out.println(quizAnswer4View);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://ip:8080/quiz/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://10.0.0.5:8080/quiz/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
-        Call<QuestionDto> listCall = jsonPlaceHolderApi.getQuestion();
+        Call<QuestionDto> listCall = jsonPlaceHolderApi.getQuestion(question_index);
 
         listCall.enqueue(new Callback<QuestionDto>() {
             @Override
@@ -68,14 +72,16 @@ public class QuestionActivity extends AppCompatActivity {
                     System.out.println("Zapytanie nie powiodlo sie: ");
                     return;
                 }
-                quizQuestionNumber.setText(question_index/10);
+
+                quizQuestionNumber.setText(question_index+"/10");
                 quizQuestionView.setText(response.body().getQuestion());
-                quizAnswer1View.setText(response.body().getAnswers()[1]);
-                quizAnswer2View.setText(response.body().getAnswers()[2]);
-                quizAnswer3View.setText(response.body().getAnswers()[3]);
-                quizAnswer4View.setText(response.body().getAnswers()[4]);
+                quizAnswer1View.setText(response.body().getAnswers()[0]);
+                quizAnswer2View.setText(response.body().getAnswers()[1]);
+                quizAnswer3View.setText(response.body().getAnswers()[2]);
+                quizAnswer4View.setText(response.body().getAnswers()[3]);
+
+//                TODO PRZYPISAC DO globalnego BOOLEANA
                 response.body().getLastQuestion();
-                response.body().getPoints();
             }
 
             @Override

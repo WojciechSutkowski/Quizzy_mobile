@@ -13,6 +13,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 public interface JsonPlaceHolderApi {
 
@@ -23,7 +24,7 @@ public interface JsonPlaceHolderApi {
     Call<CategoryDto> postCategory(@Body CategoryDto categoryDto);
 
     @GET("question/{questionNumber}")
-    Call<QuestionDto> getQuestion();
+    Call<QuestionDto> getQuestion(@Path("questionNumber") int id);
 
     @PUT("calculate")
     Call<AnswersDto> putAnswers(@Body AnswersDto answersDto);

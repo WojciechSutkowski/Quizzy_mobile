@@ -42,7 +42,7 @@ public class ResultsActivity extends AppCompatActivity {
         quizResultsView = findViewById(R.id.quiz_result);
         quizPointsView = findViewById(R.id.quiz_points);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://ip:8080/quiz/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://10.0.0.5:8080/quiz/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
