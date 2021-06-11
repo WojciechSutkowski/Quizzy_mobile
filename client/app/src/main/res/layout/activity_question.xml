@@ -42,6 +42,7 @@
             app:srcCompat="@drawable/logo" />
 
         <TextView
+            android:id="@+id/question_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
@@ -51,7 +52,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/question_text"
             android:layout_width="350dp"
             android:layout_height="55dp"
             android:layout_marginBottom="20dp"
@@ -60,51 +61,51 @@
             android:textSize="14sp" />
 
         <ToggleButton
-            android:id="@+id/toggleButton"
+            android:id="@+id/answer_button1"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_marginBottom="15dp"
-            android:background="@color/white"
+            android:background="@drawable/btn_answer"
             android:text="ToggleButton"
             android:textColor="@color/black"
             android:textOff="Mbappe"
             android:textOn="Mbappe" />
 
         <ToggleButton
-            android:id="@+id/toggleButton2"
+            android:id="@+id/answer_button2"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_marginBottom="15dp"
-            android:background="@color/white"
+            android:background="@drawable/btn_answer"
             android:text="ToggleButton"
             android:textColor="@color/black"
             android:textOff="Beckham"
             android:textOn="Beckham" />
 
         <ToggleButton
-            android:id="@+id/toggleButton3"
+            android:id="@+id/answer_button3"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_marginBottom="15dp"
-            android:background="@color/white"
+            android:background="@drawable/btn_answer"
             android:text="ToggleButton"
             android:textColor="@color/black"
             android:textOff="Figo"
             android:textOn="Figo" />
 
         <ToggleButton
-            android:id="@+id/toggleButton4"
+            android:id="@+id/answer_button4"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_marginBottom="15dp"
-            android:background="@color/white"
+            android:background="@drawable/btn_answer"
             android:text="ToggleButton"
             android:textColor="@color/black"
             android:textOff="Messi"
             android:textOn="Messi" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button_next_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"

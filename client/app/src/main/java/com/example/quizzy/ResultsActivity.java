@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quizzy.api.JsonPlaceHolderApi;
+import com.example.quizzy.dto.AnswersDto;
 import com.example.quizzy.dto.ResultsDto;
 
 import java.util.List;
@@ -68,4 +69,5 @@ public class ResultsActivity extends AppCompatActivity {
             }
         });
     }
+
 }
