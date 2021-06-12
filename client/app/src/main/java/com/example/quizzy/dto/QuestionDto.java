@@ -13,5 +13,5 @@ public class QuestionDto {
 
     public Boolean getLastQuestion(){ return lastQuestion; }
 
-    public int getPoints(){ return points; }
+//    public int getPoints(){ return points; }
 }

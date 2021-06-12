@@ -66,10 +66,10 @@
             android:layout_height="60dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/btn_answer"
-            android:text="ToggleButton"
+            android:text=""
             android:textColor="@color/black"
-            android:textOff="Mbappe"
-            android:textOn="Mbappe" />
+            android:textOff=""
+            android:textOn="" />
 
         <ToggleButton
             android:id="@+id/answer_button2"
@@ -77,10 +77,10 @@
             android:layout_height="60dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/btn_answer"
-            android:text="ToggleButton"
+            android:text=""
             android:textColor="@color/black"
-            android:textOff="Beckham"
-            android:textOn="Beckham" />
+            android:textOff=""
+            android:textOn="" />
 
         <ToggleButton
             android:id="@+id/answer_button3"
@@ -90,8 +90,8 @@
             android:background="@drawable/btn_answer"
             android:text="ToggleButton"
             android:textColor="@color/black"
-            android:textOff="Figo"
-            android:textOn="Figo" />
+            android:textOff=""
+            android:textOn="" />
 
         <ToggleButton
             android:id="@+id/answer_button4"
@@ -101,8 +101,8 @@
             android:background="@drawable/btn_answer"
             android:text="ToggleButton"
             android:textColor="@color/black"
-            android:textOff="Messi"
-            android:textOn="Messi" />
+            android:textOff=""
+            android:textOn="" />
 
         <Button
             android:id="@+id/button_next_question"

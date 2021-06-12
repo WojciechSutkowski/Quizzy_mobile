@@ -7,11 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.example.quizzy.api.JsonPlaceHolderApi;
 import com.example.quizzy.dto.AnswersDto;
 import com.example.quizzy.dto.QuestionDto;
 import com.example.quizzy.dto.ResultsDto;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,12 +26,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class QuestionActivity extends AppCompatActivity {
 
     int question_index = 1;
+    boolean is_last;
+    private  int[] selected;
+    int size;
     private TextView quizQuestionNumber;
     private TextView quizQuestionView;
-    private TextView quizAnswer1View;
-    private TextView quizAnswer2View;
-    private TextView quizAnswer3View;
-    private TextView quizAnswer4View;
+    private ToggleButton quizAnswer1View;
+    private ToggleButton quizAnswer2View;
+    private ToggleButton quizAnswer3View;
+    private ToggleButton quizAnswer4View;
     private Button nextQuestion;
 
     @Override
@@ -36,12 +43,43 @@ public class QuestionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_question);
 
         nextQuestion = findViewById(R.id.button_next_question);
+
         nextQuestion.setOnClickListener(v -> {
-//            if(lastquestion)
-            // odpalic results activity
-//                return;
-//            putAnswers();
-            question_index++;
+            size = 0;
+
+            if(quizAnswer1View.isChecked()){
+                selected=addAnswer(size, selected, 1);
+                size++;
+            }
+            if(quizAnswer2View.isChecked()){
+                selected=addAnswer(size, selected, 2);
+                size++;
+            }
+            if(quizAnswer3View.isChecked()){
+                selected=addAnswer(size, selected, 3);
+                size++;
+            }
+            if(quizAnswer4View.isChecked()){
+                selected=addAnswer(size, selected, 4);
+                size++;
+            }
+
+            System.out.println("Zaznaczone odpowiedzi: " + Arrays.toString(selected));
+
+            putAnswers(selected);
+
+            if(quizAnswer1View.isChecked() || quizAnswer2View.isChecked() || quizAnswer3View.isChecked() || quizAnswer4View.isChecked()) {
+                quizAnswer1View.setChecked(false);
+                quizAnswer2View.setChecked(false);
+                quizAnswer3View.setChecked(false);
+                quizAnswer4View.setChecked(false);
+            }
+
+            if(is_last) {
+                Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
+                startActivity(intent);
+            }
+
             getQuestion();
         });
 
@@ -55,9 +93,8 @@ public class QuestionActivity extends AppCompatActivity {
         quizAnswer2View = findViewById(R.id.answer_button2);
         quizAnswer3View = findViewById(R.id.answer_button3);
         quizAnswer4View = findViewById(R.id.answer_button4);
-        System.out.println(quizAnswer4View);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://10.0.0.5:8080/quiz/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.1.104:8080/quiz/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -75,13 +112,29 @@ public class QuestionActivity extends AppCompatActivity {
 
                 quizQuestionNumber.setText(question_index+"/10");
                 quizQuestionView.setText(response.body().getQuestion());
-                quizAnswer1View.setText(response.body().getAnswers()[0]);
-                quizAnswer2View.setText(response.body().getAnswers()[1]);
-                quizAnswer3View.setText(response.body().getAnswers()[2]);
-                quizAnswer4View.setText(response.body().getAnswers()[3]);
 
-//                TODO PRZYPISAC DO globalnego BOOLEANA
-                response.body().getLastQuestion();
+                quizAnswer1View.setText(response.body().getAnswers()[0]);
+                quizAnswer1View.setTextOn(response.body().getAnswers()[0]);
+                quizAnswer1View.setTextOff(response.body().getAnswers()[0]);
+
+                quizAnswer2View.setText(response.body().getAnswers()[1]);
+                quizAnswer2View.setTextOn(response.body().getAnswers()[1]);
+                quizAnswer2View.setTextOff(response.body().getAnswers()[1]);
+
+                quizAnswer3View.setText(response.body().getAnswers()[2]);
+                quizAnswer3View.setTextOn(response.body().getAnswers()[2]);
+                quizAnswer3View.setTextOff(response.body().getAnswers()[2]);
+
+                quizAnswer4View.setText(response.body().getAnswers()[3]);
+                quizAnswer4View.setTextOn(response.body().getAnswers()[3]);
+                quizAnswer4View.setTextOff(response.body().getAnswers()[3]);
+                question_index++;
+
+                if(response.body().getLastQuestion()) {
+                    is_last = true;
+                    nextQuestion.setText("Finish quiz");
+                }
+
             }
 
             @Override
@@ -91,24 +144,27 @@ public class QuestionActivity extends AppCompatActivity {
         });
     }
 
-    private void putAnswers() {
+    private void putAnswers(int[] sel) {
+        quizQuestionNumber = findViewById(R.id.question_number);
+        quizAnswer1View = findViewById(R.id.answer_button1);
+        quizAnswer2View = findViewById(R.id.answer_button2);
+        quizAnswer3View = findViewById(R.id.answer_button3);
+        quizAnswer4View = findViewById(R.id.answer_button4);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://ip:8080/quiz/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.1.104:8080/quiz/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
-        AnswersDto answers = new AnswersDto();
+        AnswersDto answers = new AnswersDto(sel);
 
         Call<AnswersDto> callAns = jsonPlaceHolderApi.putAnswers(answers);
 
         callAns.enqueue(new Callback<AnswersDto>() {
             @Override
             public void onResponse(Call<AnswersDto> call, Response<AnswersDto> response) {
-                response.body().getQuestionId();
-                response.body().getSelectedAnswers();
-                response.body().isLastQuestion();
+                response.body().setSelectedAnswers(sel);
             }
 
             @Override
@@ -116,6 +172,16 @@ public class QuestionActivity extends AppCompatActivity {
                 System.out.println("Zapytanie nie powiodlo sie: " + t);
             }
         });
+    }
+
+    private static int[] addAnswer(int n, int sel[], int x) {
+        int newSel[] = new int[n+1];
+
+        for(int i=0; i<n; i++){
+            newSel[i] = sel[i];
+        }
+        newSel[n] = x;
+        return newSel;
     }
 
 
