@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void sendCategory(String cat) {
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.1.104:8080/quiz/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://10.0.0.5:8080/quiz/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

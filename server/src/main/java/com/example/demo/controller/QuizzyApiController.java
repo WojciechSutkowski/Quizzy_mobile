@@ -4,6 +4,7 @@ import com.example.demo.dto.AnswerDto;
 import com.example.demo.dto.CategoryDto;
 import com.example.demo.services.AnswersService;
 import com.example.demo.services.QuestionService;
+import org.bouncycastle.math.ec.ScaleYPointMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -72,6 +73,7 @@ public class QuizzyApiController {
         returnedData.put("result",result);
         returnedData.put("userPoints",answersService.getUserPoints());
         returnedData.put("maxPoints",questionService.getMaxPoints());
+
 
         return ResponseEntity.ok(returnedData);
     }

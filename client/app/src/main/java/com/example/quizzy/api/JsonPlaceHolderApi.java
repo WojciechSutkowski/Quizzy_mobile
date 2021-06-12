@@ -23,10 +23,10 @@ public interface JsonPlaceHolderApi {
     @POST("category")
     Call<CategoryDto> postCategory(@Body CategoryDto categoryDto);
 
-    @GET("question/{questionNumber}")
-    Call<QuestionDto> getQuestion(@Path("questionNumber") int id);
+    @GET("question/{id}")
+    Call<QuestionDto> getQuestion(@Path("id") int id);
 
     @PUT("calculate")
-    Call<AnswersDto> putAnswers(@Body AnswersDto answersDto);
+    Call<Void> putAnswers(@Body AnswersDto answersDto);
 
 }

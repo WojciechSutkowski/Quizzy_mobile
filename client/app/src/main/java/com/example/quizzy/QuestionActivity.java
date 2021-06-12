@@ -78,6 +78,7 @@ public class QuestionActivity extends AppCompatActivity {
             if(is_last) {
                 Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
                 startActivity(intent);
+                return;
             }
 
             getQuestion();
@@ -94,7 +95,7 @@ public class QuestionActivity extends AppCompatActivity {
         quizAnswer3View = findViewById(R.id.answer_button3);
         quizAnswer4View = findViewById(R.id.answer_button4);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.1.104:8080/quiz/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://10.0.0.5:8080/quiz/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -106,7 +107,7 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<QuestionDto> call, Response<QuestionDto> response) {
                 if (!response.isSuccessful()) {
-                    System.out.println("Zapytanie nie powiodlo sie: ");
+                    System.out.println("Zapytanie getQuestion nie powiodlo sie: ");
                     return;
                 }
 
@@ -139,7 +140,7 @@ public class QuestionActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<QuestionDto> call, Throwable t) {
-                System.out.println("Zapytanie nie powiodlo sie: " + t);
+                System.out.println("Zapytanie getQuestion nie powiodlo sie: " + t);
             }
         });
     }
@@ -151,25 +152,28 @@ public class QuestionActivity extends AppCompatActivity {
         quizAnswer3View = findViewById(R.id.answer_button3);
         quizAnswer4View = findViewById(R.id.answer_button4);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.1.104:8080/quiz/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://10.0.0.5:8080/quiz/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
-        AnswersDto answers = new AnswersDto(sel);
+        // TODO
+        AnswersDto answers = new AnswersDto(sel,question_index - 1 ,is_last);
 
-        Call<AnswersDto> callAns = jsonPlaceHolderApi.putAnswers(answers);
+        Call<Void> callAns = jsonPlaceHolderApi.putAnswers(answers);
 
-        callAns.enqueue(new Callback<AnswersDto>() {
+        callAns.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<AnswersDto> call, Response<AnswersDto> response) {
-                response.body().setSelectedAnswers(sel);
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                System.out.println("Zapytanie putAnswers powiodlo sie: " );
+
             }
 
             @Override
-            public void onFailure(Call<AnswersDto> call, Throwable t) {
-                System.out.println("Zapytanie nie powiodlo sie: " + t);
+            public void onFailure(Call<Void> call, Throwable t) {
+                System.out.println("Zapytanie putAnswers nie powiodlo sie: " );
+
             }
         });
     }
