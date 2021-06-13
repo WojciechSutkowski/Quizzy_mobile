@@ -23,8 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ad6ec4c8-b0bd-409a-b226-cc9c403def49" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../client/app/src/main/java/com/example/quizzy/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../client/app/src/main/java/com/example/quizzy/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/app/src/main/java/com/example/quizzy/api/JsonPlaceHolderApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../client/app/src/main/java/com/example/quizzy/api/JsonPlaceHolderApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/app/src/main/java/com/example/quizzy/dto/CategoryDto.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/QuizzyApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/QuizzyApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/demo/controller/QuizzyApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/demo/controller/QuizzyApiController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,26 +128,26 @@
     </state>
     <state x="986" y="441" key="FileChooserDialogImpl/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1622548566647" />
     <state x="3300" y="328" key="FileChooserDialogImpl/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1622189972741" />
-    <state width="1877" height="264" key="GridCell.Tab.0.bottom" timestamp="1623499090238">
+    <state width="1877" height="264" key="GridCell.Tab.0.bottom" timestamp="1623597163304">
       <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="2517" height="359" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1623401805019" />
-    <state width="1877" height="264" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1623499090238" />
-    <state width="1877" height="264" key="GridCell.Tab.0.center" timestamp="1623499090238">
+    <state width="1877" height="264" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1623597163304" />
+    <state width="1877" height="264" key="GridCell.Tab.0.center" timestamp="1623597163304">
       <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="2517" height="359" key="GridCell.Tab.0.center/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1623401805019" />
-    <state width="1877" height="264" key="GridCell.Tab.0.center/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1623499090238" />
-    <state width="1877" height="264" key="GridCell.Tab.0.left" timestamp="1623499090238">
+    <state width="1877" height="264" key="GridCell.Tab.0.center/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1623597163304" />
+    <state width="1877" height="264" key="GridCell.Tab.0.left" timestamp="1623597163303">
       <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="2517" height="359" key="GridCell.Tab.0.left/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1623401805019" />
-    <state width="1877" height="264" key="GridCell.Tab.0.left/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1623499090238" />
-    <state width="1877" height="264" key="GridCell.Tab.0.right" timestamp="1623499090238">
+    <state width="1877" height="264" key="GridCell.Tab.0.left/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1623597163303" />
+    <state width="1877" height="264" key="GridCell.Tab.0.right" timestamp="1623597163304">
       <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state width="2517" height="359" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1623401805019" />
-    <state width="1877" height="264" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1623499090238" />
+    <state width="1877" height="264" key="GridCell.Tab.0.right/0.0.2560.1400/2560.0.1920.1040@2560.0.1920.1040" timestamp="1623597163304" />
     <state x="810" y="355" key="Maven.ArtifactSearchDialog" timestamp="1620902186598">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

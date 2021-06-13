@@ -5,12 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.quizzy.api.JsonPlaceHolderApi;
-import com.example.quizzy.dto.CategoryDto;
-import com.example.quizzy.dto.ResultsDto;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -62,12 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 sendCategory("gaming");
                 break;
         }
-
-        Intent intent = new Intent(getApplicationContext(), QuestionActivity.class);
-        startActivity(intent);
     }
-
-
 
     private void sendCategory(String cat) {
 
@@ -77,23 +69,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
-        CategoryDto sendCategory = new CategoryDto(cat);
-        Call<CategoryDto> category = jsonPlaceHolderApi.postCategory(sendCategory);
+        Call<Void> category = jsonPlaceHolderApi.postCategory(cat);
 
-        category.enqueue(new Callback<CategoryDto>() {
+        category.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<CategoryDto> call, Response<CategoryDto> response) {
-                if (!response.isSuccessful()) {
-                    System.out.println("Zapytanie nie powiodlo sie: ");
-                    return;
-                }
-                response.body().setCategory(cat);
-                System.out.println("Zapytanie powiodlo sie: ");
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                System.out.println("Zapytanie sendCategory powiodlo sie: " );
+
+                Intent intent = new Intent(getApplicationContext(), QuestionActivity.class);
+                startActivity(intent);
             }
 
             @Override
-            public void onFailure(Call<CategoryDto> call, Throwable t) {
-                System.out.println("Zapytanie nie powiodlo sie: " + t);
+            public void onFailure(Call<Void> call, Throwable t) {
+                System.out.println("Zapytanie sendCategory nie powiodlo sie: " );
+
             }
         });
     }
