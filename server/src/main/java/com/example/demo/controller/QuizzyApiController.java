@@ -4,6 +4,7 @@ import com.example.demo.dto.AnswerDto;
 import com.example.demo.dto.CategoryDto;
 import com.example.demo.services.AnswersService;
 import com.example.demo.services.QuestionService;
+import org.bouncycastle.math.ec.ScaleYPointMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +30,7 @@ public class QuizzyApiController {
 
         questionService.readQuestions(categoryDto.getCategory());
         answersService.resetAnswers();
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -53,10 +55,10 @@ public class QuizzyApiController {
     @PutMapping("/quiz/calculate")
     public @ResponseBody ResponseEntity<Void> checkAnswer(@RequestBody AnswerDto answer) {
 
-        // Add selected answer to answers array
         answersService.addAnswer(answer);
 
         return new ResponseEntity<>(HttpStatus.OK);
+
     }
 
     // Generate results in PDF
@@ -71,6 +73,7 @@ public class QuizzyApiController {
         returnedData.put("result",result);
         returnedData.put("userPoints",answersService.getUserPoints());
         returnedData.put("maxPoints",questionService.getMaxPoints());
+
 
         return ResponseEntity.ok(returnedData);
     }

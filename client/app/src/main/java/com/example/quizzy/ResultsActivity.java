@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quizzy.api.JsonPlaceHolderApi;
+import com.example.quizzy.dto.AnswersDto;
 import com.example.quizzy.dto.ResultsDto;
 
 import java.util.List;
@@ -41,7 +42,7 @@ public class ResultsActivity extends AppCompatActivity {
         quizResultsView = findViewById(R.id.quiz_result);
         quizPointsView = findViewById(R.id.quiz_points);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://ip:8080/quiz/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://10.0.0.5:8080/quiz/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -68,4 +69,5 @@ public class ResultsActivity extends AppCompatActivity {
             }
         });
     }
+
 }
